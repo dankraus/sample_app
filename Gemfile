@@ -1,10 +1,18 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.2'
+gem 'execjs'
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'
-  gem 'rspec-rails', '2.8.1'
+  ##gem "rspec-rails"
+  ##em 'guard-rspec'
+
+  gem "spork"
+  gem "guard"
+  gem "guard-rspec"
+  gem "guard-spork"
+
 end
 
 # Gems used only for assets and not required
@@ -18,7 +26,10 @@ end
 gem 'jquery-rails', '2.0.0'
 
 group :test do
+  gem "rspec-rails"
   gem 'capybara', '1.1.2'
+  gem 'rb-inotify'
+  gem 'libnotify'
 end
 
 group :production do
