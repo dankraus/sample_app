@@ -2963,3 +2963,47 @@ Served asset /users.js - 304 Not Modified (1ms)
   [1m[35m (99.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120325200218')
   [1m[36m (88.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120325001702')[0m
   [1m[35m (99.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120325193920')
+
+
+Started POST "/users" for 127.0.0.1 at 2012-04-03 21:22:10 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MwFIEopaiFX3Szbc8wa92A6d9bgf+vgOmxcABEub7A4=", "user"=>{"name"=>"Rails Tutorial", "email"=>"example@railstutorial.org", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my account"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 FROM "users" WHERE LOWER("users"."email") = LOWER('example@railstutorial.org') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered shared/_error_messages.html.erb (4.2ms)
+  Rendered users/new.html.erb within layouts/application (8.5ms)
+Compiled custom.css  (1193ms)  (pid 3599)
+Compiled application.css  (1ms)  (pid 3599)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 1252ms (Views: 1245.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2012-04-03 21:22:12 -0500
+Served asset /custom.css - 200 OK (80ms)
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2012-04-03 21:22:12 -0500
+Served asset /static_pages.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-04-03 21:22:12 -0500
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2012-04-03 21:22:12 -0500
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-04-03 21:22:12 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2012-04-03 21:22:12 -0500
+Served asset /static_pages.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2012-04-03 21:22:12 -0500
+Served asset /users.js - 304 Not Modified (0ms)
