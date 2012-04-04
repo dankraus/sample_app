@@ -3007,3 +3007,54 @@ Served asset /static_pages.js - 304 Not Modified (2ms)
 
 Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2012-04-03 21:22:12 -0500
 Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2012-04-03 21:48:19 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MwFIEopaiFX3Szbc8wa92A6d9bgf+vgOmxcABEub7A4=", "user"=>{"name"=>"Rails Tutorial", "email"=>"example@railstutorial.org", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my account"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 FROM "users" WHERE LOWER("users"."email") = LOWER('example@railstutorial.org') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  Rendered shared/_error_messages.html.erb (4.0ms)
+  Rendered users/new.html.erb within layouts/application (32.7ms)
+Compiled custom.css  (820ms)  (pid 4692)
+Compiled static_pages.css  (0ms)  (pid 4692)
+Compiled users.css  (0ms)  (pid 4692)
+Compiled application.css  (833ms)  (pid 4692)
+Compiled jquery.js  (2ms)  (pid 4692)
+Compiled jquery_ujs.js  (0ms)  (pid 4692)
+Compiled static_pages.js  (144ms)  (pid 4692)
+Compiled users.js  (141ms)  (pid 4692)
+Compiled application.js  (338ms)  (pid 4692)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 1375ms (Views: 1263.1ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2012-04-03 21:48:21 -0500
+Served asset /static_pages.css - 304 Not Modified (10ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2012-04-03 21:48:21 -0500
+Served asset /custom.css - 200 OK (7ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-04-03 21:48:21 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2012-04-03 21:48:21 -0500
+Served asset /users.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-04-03 21:48:21 -0500
+Served asset /jquery.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2012-04-03 21:48:21 -0500
+Served asset /static_pages.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2012-04-03 21:48:21 -0500
+Served asset /users.js - 304 Not Modified (1ms)
