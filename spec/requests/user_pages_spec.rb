@@ -7,8 +7,8 @@ describe "User pages" do
 	describe "signup page" do
 		before { visit signup_path }
 
-		it { should have_selector('h1',	text: 'Sign Up') }
-		it { should have_selector('title', text: full_title('Sign Up')) }
+		it { should have_selector('h1',	text: 'Sign up') }
+		it { should have_selector('title', text: full_title('Sign up')) }
 	end
 
 	
@@ -22,7 +22,7 @@ describe "User pages" do
 			describe "error messages" do
         		before { click_button "Create my account" }
 
-        		it { should have_selector('title', text: 'Sign Up') }
+        		it { should have_selector('title', text: 'Sign up') }
         		it { should have_content('error') }
         	end
 		end
@@ -49,6 +49,7 @@ describe "User pages" do
 
 				it { should have_selector('title', text: user.name) }
 				it { should have_selector('div.alert.alert-success', text: 'Welcome') }
+				it { should have_link('Sign out') }
 			end
 
 		end
