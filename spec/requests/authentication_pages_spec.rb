@@ -18,6 +18,8 @@ describe "AuthenticationPages" do
 
 			it { should have_selector('title', text: 'Sign in') }
 			it { should have_error_message('Invalid') }
+			it { should_not have_link('Profile') }
+			it { should_not have_link('Settings') }
 
 			describe "after visiting another page" do
 				before { click_link "Home" }
@@ -52,15 +54,25 @@ describe "AuthenticationPages" do
 			describe "when attempting to view a protected page" do
 				before do
 					visit edit_user_path(user)
-					fill_in "Email",    with: user.email
-					fill_in "Password", with: user.password
-					click_button "Sign in"
+					sign_in(user)
 				end
 
 				describe "after signing in" do
 					it "should render the desired protected page" do
 						page.should have_selector('title', text: 'Edit user')
 					end
+
+					describe "when signing in again" do
+						before do
+							visit signin_path(user)
+							sign_in(user)		
+						end
+
+						it "should render the default (profile) page" do
+							page.should have_selector('title', text:user.name)
+						end
+					end
+
 				end
 			end
 

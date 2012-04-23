@@ -131,6 +131,12 @@ describe User do
 		its(:remember_token) { should_not be_blank }
 	end
 
+	describe "accessible attributes"
+		it "should not allow access to admin" do
+		expect do
+			User.new(admin: @user.admin)
+		end.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
+	end
 
 
 end
