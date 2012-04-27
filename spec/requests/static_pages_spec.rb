@@ -37,9 +37,24 @@ describe "Static pages" do
         let(:user) { FactoryGirl.create(:user) }
         before do
           FactoryGirl.create(:micropost, user: user, content: "Lorem ipsum")
+          sign_in user
+          visit root_path
+        end
+
+        it "should show micropost count" do
+          page.should have_selector("span.count")
+        end
+
+        it "should show correct micropost count and pluralization" do
+          page.should have_selector("span.count", text: '1 micropost')
+        end
+
+        it "should show correct micropost count and pluralization" do
+          #we already have 1 micropost for the user, add one more and test for correct pluralization
           FactoryGirl.create(:micropost, user: user, content: "Dolor set est")
           sign_in user
           visit root_path
+          page.should have_selector("span.count", text: '2 microposts')
         end
 
         it "should display the user's feed" do
@@ -47,6 +62,10 @@ describe "Static pages" do
             page.should have_selector("li##{item.id}", text: item.content)
           end
         end
+
+        
+
+        
       end
 
   end
