@@ -166,7 +166,6 @@ describe User do
 			microposts.each do |micropost|
 				Micropost.find_by_id(micropost.id).should be_nil
 			end
-
 		end
 
 		describe "status" do
@@ -211,6 +210,23 @@ describe User do
 
 			it { should_not be_following(other_user) }
 			its(:followed_users) { should_not include(other_user) }
+		end
+	end
+
+	describe "relationships" do
+		let(:other_user) { FactoryGirl.create(:user) }
+		before do
+			@user.save
+			@user.follow!(other_user)
+		end
+
+		it "should destroy relationships when user is deleted" do
+			relationships = @user.relationships
+			@user.destroy
+			relationships.each do |relationship|
+				Relationship.find_by_follower_id(user.id).should be_nil
+				Relationship.find_by_followed_id(user.id).should be_nil
+			end
 		end
 	end
 
